@@ -6,7 +6,7 @@ import seedRouter from './routes/seedRoutes.js';
 import userRouter from './routes/userRoutes.js';
 import orderRouter from './routes/orderRoutes.js';
 import productRouter from './routes/productRoutes.js';
-
+import postsRouter from './routes/postRoutes.js';
 
 dotenv.config();
 mongoose.connect(process.env.MONGODB_URI).then(()=>{
@@ -28,7 +28,7 @@ app.use('/api/products',productRouter);
 
 
 app.use('/api/orders',orderRouter);
-
+app.use('/api/posts',postsRouter);
 
 // app.get('/api/products',(req,res)=>{
 //     res.send(data.products)
