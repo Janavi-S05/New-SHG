@@ -47,7 +47,7 @@ export default function PlaceOrderScreen(){
     
     const{state,dispatch:ctxDispatch}=useContext(Store);
     const{cart,userInfo}=state;
-    console.log(userInfo)
+    console.log(cart);
 
     const round2=(num)=>Math.round(num*100+Number.EPSILON)/100;
     cart.itemsPrice=round2(
@@ -139,7 +139,7 @@ export default function PlaceOrderScreen(){
                         <Card.Title>Items</Card.Title>
                         <ListGroup variant="flush">
                             {cart.cartItems.map((item)=>(
-                                <ListGroup.Item key={item.id}>
+                                <ListGroup.Item key={item._id}>
                                     <Row className="align-items-center">
                                         <Col md={6}>
                                             <img src={item.image} alt={item.name}
