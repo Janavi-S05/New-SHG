@@ -19,7 +19,7 @@ export default function CartScreen(){
         cart:{cartItems},
     }=state;
 
-    // console.log(cartItems)
+    //console.log(cartItems)
     // const[{product}]=cartItems
     // console.log(product)
     // const{frontLength}=product
@@ -49,9 +49,10 @@ export default function CartScreen(){
         {/* <Helmet>
             <title>Shopping Cart</title>
         </Helmet> */}
-        <h1> Shopping Cart</h1>
-        <Row>
-            <Col md={8}>
+        {/* <h1 className="py-3"> Shopping Cart</h1> */}
+        <Row className="mx-0 flex justify-center">
+            <Col md={6} className="mt-8">
+            <h1 className="text-xl py-3 justify-center flex text-blue-500 italic text-2xl"> Shopping Cart</h1>
                 {cartItems.length===0 ?(
                     <MessageBox>
                         Cart is Empty.<Link to="/">Go Shopping</Link>
@@ -63,20 +64,22 @@ export default function CartScreen(){
                            
                             <ListGroup.Item key={item.id}>
                                 <Row className="align-items-center">
-                                    <Col md={4}>
+                                    <Col md={3} >
                                         <img
                                         src={item.image}
                                         alt={item.name}
                                         className="img-fluid rounded img-thumbnail"></img>{' '}
-                                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                                        <Link to={`/product/${item.slug}`}></Link>
+                                    </Col>
+                                    <Col md={2}>
+                                        <h2>{item.name}</h2>
                                     </Col>
                                     <Col md={3}>
                                         <Button variant="light"
                                          onClick={()=>updateCartHandler(item,item.quantity-1)}
                                           disabled={item.quantity===1}>
                                             <i className="fas fa-minus-circle">
-                                            </i>
-                                            
+                                            </i>  
                                         </Button>{' '}
                                         <span>{item.quantity}</span>{' '}
                                         <Button variant="light" 
@@ -85,7 +88,7 @@ export default function CartScreen(){
                                             <i className="fas fa-plus-circle"></i>
                                         </Button>
                                     </Col>
-                                    <Col md={3}>${item.price}</Col>
+                                    <Col md={2}>${item.price}</Col>
                                     <Col md={2}>
                                         <Button 
                                         onClick={()=> removeItemHandler(item)}
@@ -129,22 +132,30 @@ export default function CartScreen(){
                 }
             </Col>
 
-            <Col md={4}>
-                <Card>
-                    <Card.Body>
-                        <ListGroup variant="flush">
-                        <ListGroup.Item>
-                            <h3>
-                                Subtotal ({cartItems.reduce((a,c)=>a+c.quantity,0)}{' '}
-                                items):$
+            <Col md={4} className="mt-8">
+            {/* <h1 className="text-xl py-3 justify-center flex">Cart total</h1> */}
+                <Card className="bg-slate-100 py-3 mt-16">
+                <h1 className="text-xl px-3">Order Total</h1>
+                    <Card.Body className="bg-slate-100">
+                        <ListGroup  >
+                        <ListGroup.Item className="">
+                            <div >
+                            <div className="mb-2 flex justify-between">
+                                <p>Sub-Total ({cartItems.reduce((a,c)=>a+c.quantity,0)}{' '}
+                                items) </p> $
                                 {cartItems.reduce((a,c)=>a+c.price*c.quantity,0)}
-                            </h3>
+                            </div>
+                            <div className="mb-2 flex justify-between"><p>Shipping</p> Free</div>
+                            <div className="mb-2 flex justify-between"><p>Total</p> $
+                                {cartItems.reduce((a,c)=>a+c.price*c.quantity,0)}</div>
+                            </div>
                             </ListGroup.Item>
-                            <ListGroup.Item>
-                                <div className="d-grid">
+                            <ListGroup.Item className="">
+                                <div className="d-grid ">
                                     <Button
                                     type="button"
                                     variant="primary"
+                                    className="bg-blue-500"
                                      onClick={checkoutHandler}
                                     disabled={cartItems.length===0}
                                     >
