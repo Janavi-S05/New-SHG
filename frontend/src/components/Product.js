@@ -33,15 +33,15 @@ function Product(props){
 
 
     return(
-        <Card >
+        <div >
 
         <Link to={`/product/${product.slug}`}>
         <img src={product.image} className="card-img-top" alt={product.name} />
         </Link>
 
-        <Card.Body>
+        <div>
             <Link to={`/product/${product.slug}`}>
-            <Card.Title>{product.name}</Card.Title>
+            <h1>{product.name}</h1>
             </Link>
            
             <Rating rating={product.rating} numReviews={product.numReviews}></Rating>
@@ -49,9 +49,9 @@ function Product(props){
             <Button onClick={()=>addToCartHandler(product)}>Add to cart</Button>
           
 
-        </Card.Body>
+        </div>
     
-        </Card>
+        </div>
         
       
     )
