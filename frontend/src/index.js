@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Store } from './Store';
 import { StoreProvider } from './Store';
+// import './tailwind.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
