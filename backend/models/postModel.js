@@ -1,23 +1,22 @@
 import mongoose from 'mongoose';
 
-const Schema=mongoose.Schema;
+const productSchema=new mongoose.Schema(
+    {
+        name:{type:String,required:true,unique:true},
+        slug:{type:String,required:true,unique:true},
+        image:{type:String,required:true},
+        brand:{type:String,required:true},
+        category:{type:String,required:true},
+        description:{type:String,required:true},
+        price:{type:Number,required:true},
+        countInStock:{type:Number,required:true},
+        rating:{type:String,required:true},
+        numReviews:{type:Number,required:true},
+    },
+    {
+        timestamps:true
+    }
+);
 
-const postSchema=new Schema({
-   content:{type:String,trim:true},
-   postedBy:{type:Schema.Types.ObjectId,ref:'User'},
-   pinned: Boolean,
-   profilePic:{
-      type:String,
-      default:"/images/profilePic.png"
-  },
-   likes:[{type:Schema.Types.ObjectId, ref:'User'}],
-   retweetUsers:[{type:Schema.Types.ObjectId,ref:'User'}],
-   retweetData:{type:Schema.Types.ObjectId,ref:'Post'},
-   replyTo:{type:Schema.Types.ObjectId,ref:'Post'},
-  
-
-
-},{timestamps:true});
-
-const Post=mongoose.model('Post',postSchema);
-export default Post;
+const Product=mongoose.model('Product',productSchema);
+export default Product;
