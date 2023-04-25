@@ -1,13 +1,13 @@
 import express, { application } from 'express';
 import data from './data.js';
- import mongoose from 'mongoose';
- import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import seedRouter from './routes/seedRoutes.js';
 import userRouter from './routes/userRoutes.js';
 import orderRouter from './routes/orderRoutes.js';
 import productRouter from './routes/productRoutes.js';
 import postsRouter from './routes/postRoutes.js';
-
+import SupplierPostsRouter from './routes/SupplierPostRoutes.js';
 dotenv.config();
 mongoose.connect(process.env.MONGODB_URI).then(()=>{
     console.log('connected to db');
@@ -24,12 +24,13 @@ app.use(express.urlencoded({extended:true}));
 
 app.use('/api/seed',seedRouter);
 app.use('/api/products',productRouter);
- app.use('/api/users',userRouter);
+app.use('/api/users',userRouter);
 
 
 app.use('/api/orders',orderRouter);
-app.use('/api/posts',postsRouter);
 
+app.use('/api/posts',postsRouter);
+app.use('/api/supplyposts',SupplierPostsRouter);
 // app.get('/api/products',(req,res)=>{
 //     res.send(data.products)
 // })
