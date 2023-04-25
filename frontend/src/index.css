@@ -24,7 +24,11 @@ code {
   -moz-osx-font-smoothing: grayscale;
 }*/
 
-
+.like{
+  /* background-color: rgb(24, 119, 242); */
+  font-size: 10rem; 
+  color: rgb(243, 156, 18);
+}
 .site-container
 {
   min-height: 100vh;
