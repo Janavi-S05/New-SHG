@@ -19,7 +19,7 @@ users:[
 
 products:[
     {
-        // _id:'1',
+        _id:'1',
         name:'Rice',
         slug:'sun-gate-rice',
         category:'Grains',
@@ -32,7 +32,7 @@ products:[
         description:'high quality',
     },
     {
-        // _id:'2',
+       _id:'2',
         name:'Wheat',
         slug:'aashirvad-wheat',
         category:'Grains',
@@ -46,7 +46,7 @@ products:[
     },
 
     {
-        //  _id:'3',
+        _id:'3',
         name:'Coconut',
         slug:'coco-nut',
         category:'Grains',
