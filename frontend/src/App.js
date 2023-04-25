@@ -13,7 +13,7 @@ import SignupScreen from './screens/SignupScreen';
 import HomeScreen from './screens/HomeScreen';
 import { Body } from './screens/AuctionScreen';
 import ProductScreen from './screens/ProductScreen';
-import Post from './screens/Post';
+import SupplierPost from './screens/SupplierPost';
 import FeedScreen from './screens/FeedScreen';
 import ProductDescriptionScreen from './screens/ProductDescriptionScreen';
 import { Store } from './Store';
@@ -189,7 +189,7 @@ function App() {
     <Route path="/payment" element={<PaymentMethodScreen/>}/>
     <Route path="/placeorder" element={<PlaceOrderScreen/>}/>
     <Route path="/myhome" element={<Home/>}/>
-    {/* <Route path="/Post" element={<Post/>}/> */}
+    <Route path="/supplierPost" element={<SupplierPost/>}/>
     <Route path="/feedScreen" element={<FeedScreen/>}/>
     </Routes>
     </BrowserRouter>
